@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#100d0e">
+  <meta name="description" content="OCTO is an eight chapter high ticket sales course built as an explorable, animated 3D web.">
+  <title>OCTO — High ticket sales, in one web</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%23100d0e'/%3E%3Ccircle cx='32' cy='32' r='7' fill='%23d45a61'/%3E%3Cg stroke='%23d45a61' stroke-width='4' stroke-linecap='round'%3E%3Cpath d='M32 9v12M32 43v12M9 32h12M43 32h12M16 16l9 9M39 39l9 9M48 16l-9 9M25 39l-9 9'/%3E%3C/g%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <canvas id="web-canvas" aria-label="Interactive 3D course web. Scroll to travel through the sales system, or select a node."></canvas>
+  <div id="scroll-space" aria-hidden="true"></div>
+
+  <div class="interface">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="OCTO home"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 36 36"><path d="M18 4v9M18 23v9M4 18h9M23 18h9M8.1 8.1l6.4 6.4M21.5 21.5l6.4 6.4M27.9 8.1l-6.4 6.4M14.5 21.5l-6.4 6.4"/><circle cx="18" cy="18" r="4.3"/></svg></span><span>OCTO<span class="brand-dot">.</span></span></a>
+      <span class="top-divider"></span>
+      <span class="top-course">HIGH TICKET SALES / FIELD GUIDE 01</span>
+      <div class="top-actions"><span class="scroll-state"><i></i><span id="scroll-state-text">WEB OVERVIEW</span></span><button id="index-open" class="index-button" type="button">NODE INDEX <span aria-hidden="true">＋</span></button></div>
+    </header>
+
+    <main id="top">
+      <section class="intro-hud" id="intro-hud" aria-label="Course introduction">
+        <div class="eyebrow"><span></span>ONE SYSTEM / EIGHT SKILLS</div>
+        <h1>High ticket sales,<br><em>in one web.</em></h1>
+        <p>Follow one of eight focused chapters from the hub. At each node, the camera moves in and opens the chapter.</p>
+        <button class="enter-button" id="enter-web" type="button">Enter the web <span>↓</span></button>
+      </section>
+
+      <section class="active-node" id="active-node" aria-live="polite">
+        <div class="active-index"><span id="active-number">01</span><i></i><span>08</span></div>
+        <div><div class="active-kicker" id="active-kicker">THE FOUNDATION</div><h2 id="active-title">The sales foundation</h2><p id="active-summary">Build an ethical, repeatable approach to premium offers.</p></div>
+        <button id="active-open" class="active-open" type="button" aria-label="Open current chapter">↗</button>
+      </section>
+
+      <nav class="chapter-rail" aria-label="Jump to a chapter" id="chapter-rail"></nav>
+      <div class="web-labels" id="web-labels" aria-label="Clickable 3D web nodes"></div>
+
+      <div class="scroll-cue" id="scroll-cue"><span class="scroll-cue-icon">⌄</span><span>SCROLL EACH LEG TO OPEN ITS CHAPTER</span></div>
+      <div class="map-hint"><span class="hint-dot"></span><span>CLICK ANY NODE TO OPEN IT</span><span class="hint-divider">/</span><span>DRAG TO ORBIT</span></div>
+      <div class="progress-readout"><span id="progress-current">01</span><div class="progress-track"><i id="progress-fill"></i></div><span>08</span></div>
+    </main>
+  </div>
+
+  <aside id="detail-panel" class="detail-panel" aria-hidden="true" aria-labelledby="detail-title">
+    <button class="panel-scrim" id="panel-scrim" aria-label="Close detail panel"></button>
+    <div class="panel-body" role="dialog" aria-modal="true">
+      <div class="panel-top"><span id="detail-kicker">CHAPTER 01 / 08</span><button id="panel-close" type="button" aria-label="Close detail panel">×</button></div>
+      <div id="detail-content"></div>
+    </div>
+  </aside>
+
+  <aside id="index-panel" class="index-panel" aria-hidden="true" aria-labelledby="index-title">
+    <button class="panel-scrim index-scrim" id="index-scrim" aria-label="Close node index"></button>
+    <div class="index-body" role="dialog" aria-modal="true">
+      <div class="panel-top"><span>OCTO / MAP KEY</span><button id="index-close" type="button" aria-label="Close node index">×</button></div>
+      <h2 id="index-title">Explore the web.</h2>
+      <p>Jump straight to one of the eight chapters in the OCTO sales system.</p>
+      <h3>CHAPTER NODES</h3><div id="chapter-index" class="index-list"></div>
+    </div>
+  </aside>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
